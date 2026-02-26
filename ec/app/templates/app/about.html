@@ -1,0 +1,57 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}About{% endblock title %}
+
+{% block banner_slider %}
+  <div id="carouselExampleSlideOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/s1.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/s2.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/s3.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/s4.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock banner_slider %}
+
+{% block main-content %}
+<div class="container mt-3">
+    <h2 class="text-center">About Us</h2>
+    <br>
+    <div class="row container">
+        <p class="fs-4 text-center"><i>
+          Bikenigga is a public limited company with its registered and corporate office in Nairobi, Kenya.
+          The company was incorporated in 2018, and our eCommerce operations officially launched in 2020.
+          We are committed to offering high-quality bicycles and cycling accessories, focusing on durability, affordability, and customer satisfaction.
+          Today, Bicycles is one of the fastest-growing public listed companies in Kenya’s online retail and mobility solutions space.</p>
+    </div></i>
+    <div class="container">
+        <h2 class="text-center">Our Mission</h2>
+        <br>
+        <div class="row container">
+            <p class="fs-4 text-center">
+              At Bikenigga, our mission is to make high-quality, affordable bicycles accessible to every Kenyan.
+                We aim to empower mobility, promote eco-friendly transportation, and support a healthier lifestyle through our user-friendly online platform.
+                By partnering with trusted local and international brands, and embracing innovation, we strive to deliver a seamless shopping experience while driving positive change in the cycling community.</p>
+                
+                
+        </div>
+    </div>
+</div>
+<br/><br/>
+{% endblock main-content %}

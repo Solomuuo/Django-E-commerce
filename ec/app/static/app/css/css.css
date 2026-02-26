@@ -1,0 +1,12 @@
+.container-fluid fixed-bottom bg-success text-center p-2 mt-5{
+    background-color: black;
+}
+.bg-successs{
+    background-color: black;
+}
+.nav-link.active {
+    color: #fff !important;
+    background-color: #0b0c0c !important;
+    border-radius: 6px;
+    font-weight: 600;
+}

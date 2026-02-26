@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Orders{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <h3>Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+    
+    {% if orders %}
+        {% for order in orders %}
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <strong>Order #{{ order.id }}</strong> - Payment Status: 
+                    <span class="badge bg-warning text-dark">{{ order.status }}</span>
+                </div>
+                <div class="card-body">
+                    {% for item in order.items.all %}
+                        <div class="row align-items-center">
+                            <div class="col-sm-2">
+                                <img src="{{ item.product.product_image.url }}" class="img-fluid rounded" width="100" height="100" alt="{{ item.product.title }}">
+                            </div>
+                            <div class="col-sm-7">
+                                <h5 class="mb-1">{{ item.product.title }}</h5>
+                                <p class="mb-1"><strong>Quantity:</strong> {{ item.quantity }}</p>
+                                <p class="mb-1"><strong>Price:</strong> Ksh {{ item.total_price }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                    <p class="text-end"><strong>Total: Ksh {{ order.total_amount }}</strong></p>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="#" class="btn btn-secondary btn-sm">View Details</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info text-center">
+            No orders found. Place an order to see it here.
+        </div>
+    {% endif %}
+</div>
+{% endblock main-content %}

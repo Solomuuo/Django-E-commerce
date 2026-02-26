@@ -1,0 +1,126 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+
+{% block banner_slider %}
+  <div id="carouselExampleSlideOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/s1.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/s2.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/s3.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/s4.png' %}" class="d-block w-100" alt="banner image">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock banner_slider %}
+
+{% block information %}
+<div class="container">
+  <div class="row bg-success text-cnter p-5 text-white border-bottom shadow">
+    <h1>Products</h1>
+    <small class="fs-5">
+      Neel products offers a wide range of products in both liquid milk and by-product categories. 
+      The bicycles are vary with your interests .they include : Mountain bikes ,Green mamba and many more.
+  </small>
+  <small>
+      Neel products offers a wide range of Bicycles products and spare parts comprising of Frame and fork, Wheels, Braking systems, Handlebars and safety gears.
+  </small>
+  </div>
+</div>
+{% endblock information %}
+
+{% block main-content %}
+<div class="container">
+  <h2 class="text-center">Bicycles Products</h2>
+  <br/><br/>
+  <div class="row">
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="goodnessec buttermilk smbg">
+              <a href="{% url 'category' 'BC' %}">
+                  <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/bike1.png' %}" class="img-fluid center-block" alt="goodness">
+                      <p class="mlkpro"><b>Bicycles</b></p>
+                  </div>
+              </a>
+          </div>
+      </div> 
+
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="goodnessec buttermilk curdbgpro">
+              <a href="{% url 'category' 'FF' %}">
+                  <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/frame_fork.png' %}" class="img-fluid center-block" alt="goodness">
+                      <p class="mlkpro"><b>Frame and Fork</b></p>
+                  </div>
+              </a>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="goodnessec buttermilk">
+              <a href="{% url 'category' 'WT' %}">
+                  <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/wheels.png' %}" class="img-fluid center-block" alt="goodness">
+                      <p class="mlkpro"><b>Wheels and Tires</b></p>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div>
+
+  <br/><br/>
+  <div class="row">
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="goodnessec buttermilk smbg">
+              <a href="{% url 'category' 'BS' %}">
+                  <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/brakes.png' %}" class="img-fluid center-block" alt="goodness">
+                      <p class="mlkpro"><b>Braking System</b></p>
+                  </div>
+              </a>
+          </div>
+      </div> 
+
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="goodnessec buttermilk curdbgpro">
+              <a href="{% url 'category' 'HC' %}">
+                  <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/handles.png' %}" class="img-fluid center-block" alt="goodness">
+                      <p class="mlkpro"><b>Handle bars and controls</b></p>
+                  </div>
+              </a>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+          <div class="goodnessec buttermilk">
+              <a href="{% url 'category' 'SG' %}">
+                  <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/gears.png' %}" class="img-fluid center-block" alt="goodness">
+                      <p class="mlkpro"><b>Safety Gears</b></p>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div>
+</div>
+</br></br></br></br>
+{% endblock main-content %}
+
+

@@ -1,0 +1,70 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Check Out{% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-warning" role="alert">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h4>Order Summary</h4>
+            <hr>
+            {% for item in cart_items %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h5>Product: {{ item.product.title }}</h5>
+                        <p>Quantity: {{ item.quantity }}</p>
+                        <p class="fw-bold">Price: Ksh {{ item.product.discounted_price }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <p class="fw-bold">Total Cost + Ksh. 100 = {{ totalamount }}</p>
+
+<small>
+                <strong>Terms and Conditions:</strong><br>
+                1. <strong>Product Availability</strong> – All orders are subject to availability. We reserve the right to modify or discontinue any product without notice.<br>
+                2. <strong>Pricing & Payment</strong> – Prices are listed in Ksh and are subject to change. Payments must be made in full at the time of purchase.<br>
+                3. <strong>Returns & Refunds</strong> – Returns are only accepted within 2 days of purchase, provided the product is unused and in its original packaging.<br>
+                4. <strong>Delivery Policy</strong> – Estimated delivery times are provided but are not guaranteed. Delays due to unforeseen circumstances do not entitle refunds.<br>
+                <!-- 5. <strong>User Responsibilities</strong> – Customers must provide accurate information when placing orders. We are not responsible for incorrect details leading to failed deliveries.<br> -->
+                5. <strong>Privacy & Data</strong> – Your personal information is handled with confidentiality and is used only for order processing and customer service.<br>
+                6. <strong>Changes to Terms</strong> – We may update these terms at any time without prior notice. Continued use of our services implies acceptance of any modifications.<br>
+                For further details, please contact <strong>soloh@gmail.com</strong>.
+            </small> 
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>Select Shipping Address</h4>
+            <hr>
+            <form method="post">
+                {% csrf_token %}
+                {% if addresses %}
+                    {% for address in addresses %}
+                        <div class="card mb-2">
+                            <div class="card-body">
+                                <h5>{{ address.name }}</h5>
+                                <p>Mobile: {{ address.mobile }}</p>
+                                <p>{{ address.locality }}, {{ address.city }}, {{ address.state }} - {{ address.zipcode }}</p>
+                            </div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="custid" id="address{{ forloop.counter }}" value="{{ address.id }}">
+                            <label class="form-check-label" for="address{{ forloop.counter }}">
+                                Select this address
+                            </label>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No addresses found. Please <a href="{% url 'profile' %}">add one</a>.</p>
+                {% endif %}
+                <div class="text-end">
+                    <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Proceed to Pay</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

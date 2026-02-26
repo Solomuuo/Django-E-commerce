@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction History</title>
+</head>
+<body>
+    <h1>Transaction History</h1>
+    <table border="1">
+        <tr>
+            <th>Phone Number</th>
+            <th>Amount</th>
+            <th>Receipt Number</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.phone_number }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.mpesa_receipt_number }}</td>
+            <td>{{ transaction.status }}</td>
+            <td>{{ transaction.transaction_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
